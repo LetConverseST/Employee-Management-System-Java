@@ -1,10 +1,24 @@
 # Employee Management System
 
-A professional console-based Employee Management System built using Core Java, JDBC, and MySQL. This project follows a clean layered architecture and demonstrates OOP, DAO pattern, input validation, exception handling, and database operations using `PreparedStatement`.
+A console-based Employee Management System built using Core Java, JDBC, and MySQL.  
+This project demonstrates Java backend fundamentals including CRUD operations, layered architecture, DAO pattern, exception handling, input validation, and database connectivity using `PreparedStatement`.
+
+---
 
 ## Project Overview
 
-The application allows users to manage employee records from a console menu. It is designed as a realistic beginner-to-intermediate academic project suitable for a 3rd-year Computer Science Engineering resume.
+The application allows users to manage employee records through a console-based interface while demonstrating concepts such as:
+
+- Core Java
+- JDBC
+- OOP Principles
+- Collections Framework
+- Layered Architecture
+- DAO Pattern
+- MySQL Integration
+- Exception Handling
+
+---
 
 ## Technologies Used
 
@@ -16,12 +30,14 @@ The application allows users to manage employee records from a console menu. It 
 - OOP
 - DAO Pattern
 
+---
+
 ## Features
 
 - Add Employee
 - View All Employees
 - Search Employee by ID
-- Update Employee
+- Update Employee Details
 - Delete Employee
 - Sort Employees by Salary
 - Filter Employees by Department
@@ -29,69 +45,102 @@ The application allows users to manage employee records from a console menu. It 
 - SQL Exception Handling
 - Console Menu System
 
+---
+
 ## Project Structure
 
 ```text
 EmployeeManagementSystem/
-|
+│
 ├── src/
 │   ├── model/
 │   │   └── Employee.java
+│   │
 │   ├── dao/
 │   │   ├── EmployeeDAO.java
 │   │   └── EmployeeDAOImpl.java
+│   │
 │   ├── db/
 │   │   └── DBConnection.java
+│   │
 │   ├── service/
 │   │   └── EmployeeService.java
+│   │
 │   ├── util/
 │   │   └── InputValidator.java
+│   │
 │   └── main/
 │       └── Main.java
+│
 ├── database.sql
 ├── README.md
-└── lib/
-    └── mysql-connector-j.jar
+└── .gitignore
 ```
+
+---
 
 ## Database Setup
 
-1. Open MySQL Workbench or MySQL command line.
-2. Run the script from `database.sql`.
-3. Confirm that the database `employee_management` and table `employees` are created.
+### Step 1 — Create Database
+
+Run the following SQL commands:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS employee_management;
+
 USE employee_management;
 ```
 
+### Step 2 — Run SQL Script
+
+Execute the `database.sql` file included in the project.
+
+This will create the required `employees` table automatically.
+
+---
+
 ## MySQL Connector Setup
 
-Download MySQL Connector/J from the official MySQL website and place the JAR file inside the `lib` folder.
+Download MySQL Connector/J from the official MySQL website:
 
-Expected path:
+https://dev.mysql.com/downloads/connector/j/
+
+Place the downloaded JAR file inside the `lib` folder.
+
+Expected structure:
 
 ```text
 EmployeeManagementSystem/lib/mysql-connector-j.jar
 ```
 
+---
+
 ## Configure Database Credentials
 
-Open `src/db/DBConnection.java` and update these values if your MySQL username or password is different:
+Open:
+
+```text
+src/db/DBConnection.java
+```
+
+Update the following values according to your MySQL configuration:
 
 ```java
 private static final String USERNAME = "root";
 private static final String PASSWORD = "root";
 ```
 
-## Compile and Run
+---
 
-From inside the `EmployeeManagementSystem` folder:
+## Compile and Run
 
 ### Windows PowerShell
 
+Run these commands from inside the project folder:
+
 ```powershell
 javac -cp ".;lib/mysql-connector-j.jar" -d out src/model/*.java src/dao/*.java src/db/*.java src/service/*.java src/util/*.java src/main/*.java
+
 java -cp "out;lib/mysql-connector-j.jar" main.Main
 ```
 
@@ -99,8 +148,11 @@ java -cp "out;lib/mysql-connector-j.jar" main.Main
 
 ```bash
 javac -cp ".:lib/mysql-connector-j.jar" -d out src/model/*.java src/dao/*.java src/db/*.java src/service/*.java src/util/*.java src/main/*.java
+
 java -cp "out:lib/mysql-connector-j.jar" main.Main
 ```
+
+---
 
 ## Sample Console Output
 
@@ -119,6 +171,7 @@ java -cp "out:lib/mysql-connector-j.jar" main.Main
 7. Filter by Department
 8. Exit
 -----------------------------------------
+
 Enter your choice: 2
 
 ID    Name                      Department           Salary       Email
@@ -128,21 +181,33 @@ ID    Name                      Department           Salary       Email
 3     Rohan Mehta               Finance              61000.00     rohan.mehta@example.com
 ```
 
-## Screenshots
-
-Add screenshots here after running the project:
-
-- Main Menu
-- Add Employee
-- View Employees
-- Search Employee
-- Update Employee
+---
 
 ## Learning Outcomes
+
+Through this project, the following concepts were practiced:
 
 - Applying OOP principles in Java
 - Implementing layered architecture
 - Using DAO pattern for database operations
-- Writing safe SQL queries with `PreparedStatement`
-- Handling user input and exceptions in console applications
-- Using `ArrayList` and `Comparator` from the Collections Framework
+- Writing secure SQL queries using `PreparedStatement`
+- Handling exceptions in database-driven applications
+- Validating user input in console applications
+- Using Java Collections Framework (`ArrayList`, `Comparator`)
+- Managing MySQL database connectivity with JDBC
+
+---
+
+## Future Improvements
+
+- GUI integration using JavaFX or Swing
+- Authentication and role-based access
+- REST API migration using Spring Boot
+- Docker containerization
+- Unit testing with JUnit
+
+---
+
+## Author
+
+Shivam Tiwari
